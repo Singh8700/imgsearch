@@ -34,8 +34,7 @@ body::-webkit-scrollbar-thumb {
 }
 .container {
   width: 80vw;
-  margin: 0 auto;
-  overflow-x:hidden;
+  margin:0.2rem auto;
 }
 input{
   width:300px;
@@ -183,7 +182,7 @@ button:focus-visible {
   .grid-two-col, 
   .grid-three-col, 
   .grid-four-col{
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
      }
     }
     input{
@@ -205,10 +204,16 @@ button:focus-visible {
     .grid-two-col , 
     .grid-three-col, 
     .grid-four-col{
+      grid-template-columns: repeat(2,1fr);
+     }
+    }
+    }
+    @media (max-width: ${({ theme }) => theme.media.small}) {
+    .grid-two-col , 
+    .grid-three-col, 
+    .grid-four-col{
       grid-template-columns: 1fr;
      }
     }
-
-      
     }
 `;

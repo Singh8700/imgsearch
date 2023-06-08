@@ -37,7 +37,6 @@ const nextHandler=()=>{
  }
   const previousHandler=()=>{
     setPage((page) => page - 1)
-    
     searchResults()
     console.log("nomber of page",page)
   }

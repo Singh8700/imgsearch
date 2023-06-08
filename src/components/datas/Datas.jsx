@@ -18,15 +18,16 @@ const Datas=(props)=>{
   margin-bottom: 60px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  padding:5px 10px;
   overflow: hidden;
-  transform: scale(0.9);
+  transform: scale(0.8);
   background: #ccc;
-  transition: all 0.5s;
+  transition: all 0.2s;
+  margin-left:0;
 }
 
 .search-result:hover{
-  transform: scale(1);
+  transform: scale(0.95);
 }
 
 .search-result img{
@@ -82,10 +83,6 @@ const Datas=(props)=>{
   }
   @media screen and (max-width: ${({theme})=>theme.media.tab}) {
   .search-result {
-    width: 45%;
-    inline-size: 46%;
-    height:max-content;
-    overflow-y: hidden;
     a{
       font-size:2rem;
     }
@@ -109,15 +106,11 @@ const Datas=(props)=>{
     }
   }
   }
-@media screen and (max-width: ${({theme})=>theme.media.mobile}) {
-  .search-result{
-    width:100%;
-  }
-}
+
   `
 
   return(
-    <Wrapper className="conatiner flex">
+    <Wrapper className="container flex">
     <div class="search-results grid grid-three-col">
       {props.status?
         props.result.map((item)=>{
