@@ -54,8 +54,8 @@ Error generating stack: `+o.message+`
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #fff;
+  background-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -64,7 +64,6 @@ Error generating stack: `+o.message+`
   -webkit-text-size-adjust: 100%;
 }
 body {
-  overflow-x: hidden;
    scrollbar-color: rgb(98 84 243);
     scrollbar-width: thin;
 }
@@ -82,9 +81,9 @@ body::-webkit-scrollbar-thumb {
     background-clip: content-box;
 }
 .container {
-  max-width: 100vw;
+  width: 80vw;
   margin: 0 auto;
-  padding:1rem;
+  overflow-x:hidden;
 }
 input{
   width:300px;
@@ -144,6 +143,7 @@ h6{
 }
 .heading{
   text-align:center;
+  width:50%;
 }
 a {
   font-weight: 500;
@@ -162,9 +162,9 @@ body,html {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.5em 0.9em;
+  padding: 0.5em 0.4em;
   margin:0.5rem auto;
-  font-size: 3em;
+  font-size: 1.4rem;
   text-shadow:2px 2px 4px #000;
   font-weight: 500;
   font-family: Georgia;
@@ -179,30 +179,31 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.textHighlight{
-  width:100%;
-  display:flex;
-  justify-content:flex-end;
-  align-items:right;
-  flex-direction:column;
+.textHighlight {
   padding:0 10px;
+  h1{
+    width:80%;
+    background:rgba(0,0,0,0.2);
+    margin:0 auto;
+  }
   h4,h5{
-    text-align:right;
-    width:65%;
-    align-self:right;
+    text-align: center;
     font-size:2rem;
     margin: 0 auto;
   }
   
   h5{
-    margin: 0 auto 3rem;
+    margin-bottom:3rem;
     font-size:1.5rem;
   }
 }
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #000;
+    background-color: #fff;
+  }
+  .heading{
+    color:#000;
   }
   a:hover {
     color: #747bff;
@@ -215,12 +216,12 @@ button:focus-visible {
 
 @media (max-width: ${({theme:e})=>e.media.tab}) {
     .container {
-    padding: 0 3.2rem;
+    overflow-x:hidden;
  }
   .heading{
-    font-size:2.5rem;
+    font-size:2.2rem;
+    word-break:all;
     text-align:center;
-    
     width:100%;
     margin:2rem auto;
   }
@@ -230,7 +231,7 @@ button:focus-visible {
   .grid-two-col, 
   .grid-three-col, 
   .grid-four-col{
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
      }
     }
     input{
@@ -239,11 +240,7 @@ button:focus-visible {
       
       padding:0.4rem 1.5rem;
     }
-    .textHighlight{
-      h4{
-        font-size:1.5rem;
-      }
-    }
+    
   }
 @media (max-width: ${({theme:e})=>e.media.mobile}) {
     html {
@@ -259,14 +256,14 @@ button:focus-visible {
       grid-template-columns: 1fr;
      }
     }
+
+      
+    }
 `,zm=e=>{const t=Qi.section`
   
   width:100%;
   margin:2rem auto;
   .search-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   width: 100vw;
   flex-wrap: wrap;
   margin:2rem auto;
@@ -274,7 +271,6 @@ button:focus-visible {
 
 .search-result {
   margin-bottom: 60px;
-  width: 35%;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   padding: 5px 10px;
@@ -331,8 +327,7 @@ button:focus-visible {
             inset 2px 2px 4px #fff;
 }
   .btn-conatiner{
-    margin:20rem auto 0 0;
-    padding:20px;
+    margin:8rem auto 0 0;
     width:100vw;
     .page-no{
       text-align:center;
@@ -340,20 +335,41 @@ button:focus-visible {
       color:#fff;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${({theme:n})=>n.media.tab}) {
   .search-result {
-    margin: 0 auto;
-    width: 100%;
+    width: 45%;
+    inline-size: 46%;
+    height:max-content;
     overflow-y: hidden;
     a{
       font-size:2rem;
     }
   }
   .search-result img{
-    height:70%;
+    object-fit:cover;
+  }
+  .btn-conatiner{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    .brn{
+      margin:0 auto;
+      width:50%;
+      font-size:16px;
+    }
+    .page-no{
+      font-size:15px;
+      margin:0 2rem;
+    }
+  }
+  }
+@media screen and (max-width: ${({theme:n})=>n.media.mobile}) {
+  .search-result{
+    width:100%;
   }
 }
-  `;return G.jsxs(t,{className:"conatiner flex",children:[G.jsx("div",{class:"search-results flex",children:e.status?e.result.map(n=>G.jsxs("div",{class:"search-result",children:[G.jsx("img",{src:n.urls.small,alt:n.alt_description}),G.jsx("a",{href:n.links.html,target:"_blank",children:n.alt_description}),G.jsx("a",{href:n.urls.regular,download:!0,children:"Download"})]},n.id)):""}),e.imgName.trim().length==0?"":G.jsxs("div",{className:"btn-conatiner flex",children:[G.jsx("button",{className:"btn",type:"submit",onClick:e.more,children:"More"}),G.jsx("div",{className:"page-no",children:G.jsx("span",{children:e.pageNo>=2?G.jsxs("span",{children:["Page No:",e.pageNo]}):G.jsx("span",{})})}),e.pageNo>=2?G.jsx("button",{className:"btn",type:"submit",onClick:e.previous,children:"Previous"}):""]})]})},Tm=()=>{const[e,t]=J.useState(!1),[n,r]=J.useState([]),[l,o]=J.useState(1),[i,u]=J.useState(""),s=y=>{y.target.value===""?u(""):u(y.target.value),p()},c="C5Qqg1Dk7hQFjwdZozwzPyCLBP7ChI9RXWXHyy829Oc",p=async()=>{try{const y=`https://api.unsplash.com/search/photos?page=${l}&query=${i}&client_id=${c}`,S=await(await fetch(y)).json();r(S.results),t(!0),console.log("results",n)}catch(y){alert(y)}},m=()=>{o(y=>y+1),p(),console.log("nomber of page",l)},h=()=>{o(y=>y-1),p(),console.log("nomber of page",l)};return G.jsx(G.Fragment,{children:G.jsxs("div",{className:"container flex flex-col",children:[G.jsx("div",{className:"search-inputs flex",children:G.jsx("input",{type:"text",placeHolder:"Search Img",onChange:s})}),G.jsx(zm,{imgName:i,status:e,result:n,more:m,previous:h,pageNo:l})]})})},Rm=()=>{const e={colors:{bg:"red"},media:{mobile:"780px",tab:"990px"}};return G.jsxs(Em,{theme:e,children:[G.jsx(Nm,{}),G.jsxs("div",{className:"textHighlight",children:[G.jsx("h1",{className:"heading",children:"Images Search Very-Easy :)"}),G.jsx("h4",{children:"Provide by UnSplash.com"}),G.jsx("h5",{children:"Create By Rohit"})]}),G.jsx(Tm,{})]})};/**
+  `;return G.jsxs(t,{className:"conatiner flex",children:[G.jsx("div",{class:"search-results grid grid-three-col",children:e.status?e.result.map(n=>G.jsxs("div",{class:"search-result",children:[G.jsx("img",{src:n.urls.small,alt:n.alt_description}),G.jsx("a",{href:n.links.html,target:"_blank",children:n.alt_description}),G.jsx("a",{href:n.urls.regular,download:!0,children:"Download"})]},n.id)):""}),e.imgName.trim().length==0?"":G.jsxs("div",{className:"btn-conatiner flex",children:[G.jsx("button",{className:"btn",type:"submit",onClick:e.more,children:"More"}),G.jsx("div",{className:"page-no",children:G.jsx("span",{children:e.pageNo>=2?G.jsxs("span",{children:["Page No:",e.pageNo]}):G.jsx("span",{})})}),e.pageNo>=2?G.jsx("button",{className:"btn",type:"submit",onClick:e.previous,children:"Previous"}):""]})]})},Tm=()=>{const[e,t]=J.useState(!1),[n,r]=J.useState([]),[l,o]=J.useState(1),[i,u]=J.useState(""),s=y=>{y.target.value===""?u(""):u(y.target.value),p()},c="C5Qqg1Dk7hQFjwdZozwzPyCLBP7ChI9RXWXHyy829Oc",p=async()=>{try{const y=`https://api.unsplash.com/search/photos?page=${l}&query=${i}&client_id=${c}`,S=await(await fetch(y)).json();r(S.results),t(!0),console.log("results",n)}catch(y){alert(y)}},m=()=>{o(y=>y+1),p(),console.log("nomber of page",l)},h=()=>{o(y=>y-1),p(),console.log("nomber of page",l)};return G.jsx(G.Fragment,{children:G.jsxs("div",{className:"container flex flex-col",children:[G.jsx("div",{className:"search-inputs flex",children:G.jsx("input",{type:"text",placeHolder:"Search Img",onChange:s})}),G.jsx(zm,{imgName:i,status:e,result:n,more:m,previous:h,pageNo:l})]})})},Rm=()=>{const e={colors:{bg:"red"},media:{mobile:"780px",tab:"990px"}};return G.jsxs(Em,{theme:e,children:[G.jsx(Nm,{}),G.jsxs("div",{className:"container textHighlight flex flex-col",children:[G.jsx("h1",{className:"heading",children:"Images Search Very-Easy :)"}),G.jsx("h4",{children:"Provide by UnSplash.com"}),G.jsx("h5",{children:"Create By Rohit"})]}),G.jsx(Tm,{})]})};/**
  * @remix-run/router v1.6.2
  *
  * Copyright (c) Remix Software Inc.
