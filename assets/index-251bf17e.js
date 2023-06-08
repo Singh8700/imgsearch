@@ -82,8 +82,7 @@ body::-webkit-scrollbar-thumb {
 }
 .container {
   width: 80vw;
-  margin: 0 auto;
-  overflow-x:hidden;
+  margin:0.2rem auto;
 }
 input{
   width:300px;
@@ -231,7 +230,7 @@ button:focus-visible {
   .grid-two-col, 
   .grid-three-col, 
   .grid-four-col{
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
      }
     }
     input{
@@ -253,11 +252,17 @@ button:focus-visible {
     .grid-two-col , 
     .grid-three-col, 
     .grid-four-col{
+      grid-template-columns: repeat(2,1fr);
+     }
+    }
+    }
+    @media (max-width: ${({theme:e})=>e.media.small}) {
+    .grid-two-col , 
+    .grid-three-col, 
+    .grid-four-col{
       grid-template-columns: 1fr;
      }
     }
-
-      
     }
 `,zm=e=>{const t=Qi.section`
   
@@ -273,15 +278,16 @@ button:focus-visible {
   margin-bottom: 60px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  padding:5px 10px;
   overflow: hidden;
-  transform: scale(0.9);
+  transform: scale(0.8);
   background: #ccc;
-  transition: all 0.5s;
+  transition: all 0.2s;
+  margin-left:0;
 }
 
 .search-result:hover{
-  transform: scale(1);
+  transform: scale(0.95);
 }
 
 .search-result img{
@@ -337,10 +343,6 @@ button:focus-visible {
   }
   @media screen and (max-width: ${({theme:n})=>n.media.tab}) {
   .search-result {
-    width: 45%;
-    inline-size: 46%;
-    height:max-content;
-    overflow-y: hidden;
     a{
       font-size:2rem;
     }
@@ -364,12 +366,8 @@ button:focus-visible {
     }
   }
   }
-@media screen and (max-width: ${({theme:n})=>n.media.mobile}) {
-  .search-result{
-    width:100%;
-  }
-}
-  `;return G.jsxs(t,{className:"conatiner flex",children:[G.jsx("div",{class:"search-results grid grid-three-col",children:e.status?e.result.map(n=>G.jsxs("div",{class:"search-result",children:[G.jsx("img",{src:n.urls.small,alt:n.alt_description}),G.jsx("a",{href:n.links.html,target:"_blank",children:n.alt_description}),G.jsx("a",{href:n.urls.regular,download:!0,children:"Download"})]},n.id)):""}),e.imgName.trim().length==0?"":G.jsxs("div",{className:"btn-conatiner flex",children:[G.jsx("button",{className:"btn",type:"submit",onClick:e.more,children:"More"}),G.jsx("div",{className:"page-no",children:G.jsx("span",{children:e.pageNo>=2?G.jsxs("span",{children:["Page No:",e.pageNo]}):G.jsx("span",{})})}),e.pageNo>=2?G.jsx("button",{className:"btn",type:"submit",onClick:e.previous,children:"Previous"}):""]})]})},Tm=()=>{const[e,t]=J.useState(!1),[n,r]=J.useState([]),[l,o]=J.useState(1),[i,u]=J.useState(""),s=y=>{y.target.value===""?u(""):u(y.target.value),p()},c="C5Qqg1Dk7hQFjwdZozwzPyCLBP7ChI9RXWXHyy829Oc",p=async()=>{try{const y=`https://api.unsplash.com/search/photos?page=${l}&query=${i}&client_id=${c}`,S=await(await fetch(y)).json();r(S.results),t(!0),console.log("results",n)}catch(y){alert(y)}},m=()=>{o(y=>y+1),p(),console.log("nomber of page",l)},h=()=>{o(y=>y-1),p(),console.log("nomber of page",l)};return G.jsx(G.Fragment,{children:G.jsxs("div",{className:"container flex flex-col",children:[G.jsx("div",{className:"search-inputs flex",children:G.jsx("input",{type:"text",placeHolder:"Search Img",onChange:s})}),G.jsx(zm,{imgName:i,status:e,result:n,more:m,previous:h,pageNo:l})]})})},Rm=()=>{const e={colors:{bg:"red"},media:{mobile:"780px",tab:"990px"}};return G.jsxs(Em,{theme:e,children:[G.jsx(Nm,{}),G.jsxs("div",{className:"container textHighlight flex flex-col",children:[G.jsx("h1",{className:"heading",children:"Images Search Very-Easy :)"}),G.jsx("h4",{children:"Provide by UnSplash.com"}),G.jsx("h5",{children:"Create By Rohit"})]}),G.jsx(Tm,{})]})};/**
+
+  `;return G.jsxs(t,{className:"container flex",children:[G.jsx("div",{class:"search-results grid grid-three-col",children:e.status?e.result.map(n=>G.jsxs("div",{class:"search-result",children:[G.jsx("img",{src:n.urls.small,alt:n.alt_description}),G.jsx("a",{href:n.links.html,target:"_blank",children:n.alt_description}),G.jsx("a",{href:n.urls.regular,download:!0,children:"Download"})]},n.id)):""}),e.imgName.trim().length==0?"":G.jsxs("div",{className:"btn-conatiner flex",children:[G.jsx("button",{className:"btn",type:"submit",onClick:e.more,children:"More"}),G.jsx("div",{className:"page-no",children:G.jsx("span",{children:e.pageNo>=2?G.jsxs("span",{children:["Page No:",e.pageNo]}):G.jsx("span",{})})}),e.pageNo>=2?G.jsx("button",{className:"btn",type:"submit",onClick:e.previous,children:"Previous"}):""]})]})},Tm=()=>{const[e,t]=J.useState(!1),[n,r]=J.useState([]),[l,o]=J.useState(1),[i,u]=J.useState(""),s=y=>{y.target.value===""?u(""):u(y.target.value),p()},c="C5Qqg1Dk7hQFjwdZozwzPyCLBP7ChI9RXWXHyy829Oc",p=async()=>{try{const y=`https://api.unsplash.com/search/photos?page=${l}&query=${i}&client_id=${c}`,S=await(await fetch(y)).json();r(S.results),t(!0),console.log("results",n)}catch(y){alert(y)}},m=()=>{o(y=>y+1),p(),console.log("nomber of page",l)},h=()=>{o(y=>y-1),p(),console.log("nomber of page",l)};return G.jsx(G.Fragment,{children:G.jsxs("div",{className:"container flex flex-col",children:[G.jsx("div",{className:"search-inputs flex",children:G.jsx("input",{type:"text",placeHolder:"Search Img",onChange:s})}),G.jsx(zm,{imgName:i,status:e,result:n,more:m,previous:h,pageNo:l})]})})},Rm=()=>{const e={colors:{bg:"red"},media:{mobile:"780px",tab:"990px",small:"480px"}};return G.jsxs(Em,{theme:e,children:[G.jsx(Nm,{}),G.jsxs("div",{className:"container textHighlight flex flex-col",children:[G.jsx("h1",{className:"heading",children:"Images Search Very-Easy :)"}),G.jsx("h4",{children:"Provide by UnSplash.com"}),G.jsx("h5",{children:"Create By Rohit"})]}),G.jsx(Tm,{})]})};/**
  * @remix-run/router v1.6.2
  *
  * Copyright (c) Remix Software Inc.
