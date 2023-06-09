@@ -26,7 +26,6 @@ body::-webkit-scrollbar-track {
    background-color: rgb(24 24 29);
 }
 body::-webkit-scrollbar-thumb {
- 
   background: #fff;
     border: 5px solid transparent;
     border-radius: 9px;
@@ -109,6 +108,7 @@ body,html {
  font-size:62.5%;
   min-width: 320px;
   min-height: 100vh;
+ scroll-behavior: smooth;
 }
 button {
   border-radius: 8px;

@@ -17,7 +17,7 @@ const App=()=> {
   return(
     <ThemeProvider theme={theme}>
     <GlobalStyled/>
-    <div className="container textHighlight flex flex-col">
+    <div className="container textHighlight flex flex-col" id="sections">
     <h1 className="heading">
     Images Search Very-Easy :)
     </h1>

@@ -1,12 +1,12 @@
 import {useState, useEffect} from "react";
-
+import axios from "axios"
 import Datas from "../datas/Datas"
 const Home =()=>{
   const [status,setStatus]=useState(false)
   
   const [result,setResult]=useState([])
   const [page,setPage] = useState(1)
-  const [imgName,setImgName] = useState('')
+  const [imgName,setImgName] = useState('child')
   
 const changeHandler=(e)=>{
   e.target.value===''?setImgName(''):setImgName(e.target.value)
@@ -16,20 +16,26 @@ const changeHandler=(e)=>{
   const searchResults = async () =>{
     try{
     const url = `https://api.unsplash.com/search/photos?page=${page}&query=${imgName}&client_id=${ApiKey}`;
-    const response = await fetch(url)
-    const data = await response.json()
+    const response = await axios.get(url)
+    //console.log(response.data.results)
+    const data = await response.data
   //  const filterData = data.results
     
-    setResult(data.results)
+     setResult(data.results)
+   // setPage2(data.results)
    // alert(window.innerWidth)
     //setResult(per=>[...per,dat])
     setStatus(true)
+    
+    
     console.log("results",result)
     }catch(e){
       alert(e)
     }
   }
-
+useEffect(()=>{
+     searchResults()
+ },[])
 const nextHandler=()=>{
     setPage((page) => page + 1)
     searchResults()

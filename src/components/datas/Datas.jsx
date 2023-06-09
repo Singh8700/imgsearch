@@ -95,9 +95,8 @@ const Datas=(props)=>{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    .brn{
+    a{
       margin:0 auto;
-      width:50%;
       font-size:16px;
     }
     .page-no{
@@ -111,11 +110,11 @@ const Datas=(props)=>{
 
   return(
     <Wrapper className="container flex">
-    <div class="search-results grid grid-three-col">
+    <div className="search-results grid grid-three-col">
       {props.status?
         props.result.map((item)=>{
           return (
-          <div class="search-result" key={item.id}>
+          <div className="search-result" key={item.id}>
           <img src={item.urls.small} alt={item.alt_description}/>
           <a href={item.links.html} target="_blank">{item.alt_description}</a>
           <a href={item.urls.regular} download>Download</a>
@@ -126,13 +125,14 @@ const Datas=(props)=>{
 
       </div>
     {props.imgName.trim().length==0?'':<div className="btn-conatiner flex">
+    <a href="#sections">
       <button className="btn" type="submit" onClick={props.more}>More
-    </button>
+    </button></a>
     <div className="page-no">
 <span>{props.pageNo >= 2?<span>Page No:{props.pageNo}</span>:<span></span>}</span>
     </div>
-   {props.pageNo >= 2?<button className="btn" type="submit" onClick={props.previous}>Previous
-    </button>:''}
+   {props.pageNo >= 2?<a href="#sections"><button className="btn"  type="submit" onClick={props.previous}>Previous
+    </button></a>:''}
     </div>}
     </Wrapper>
     )
