@@ -32,7 +32,6 @@ const Datas=(props)=>{
 
 .search-result img{
   width: 100%;
-  max-height:50vh;
   border-radius: 10px;
   box-shadow: 2px 2px 4px #aaa,
             inset -2px -2px 4px #fff,

@@ -123,6 +123,13 @@ button {
   cursor: pointer;
   transition: border-color 0.5s;
 }
+.cols{
+  width:100vw;
+  columns:4;
+  column-gap: 5px;
+  break-inside: avoid;
+  margin: 0.4rem auto;
+}
 button:hover {
   border-color: #646cff;
 }
@@ -153,6 +160,7 @@ button:focus-visible {
     color: #000;
     background-color: #fff;
   }
+
   .heading{
     color:#000;
   }
@@ -169,6 +177,10 @@ button:focus-visible {
     .container {
     overflow-x:hidden;
  }
+ .cols{
+    width:calc(100% - 60px);
+    columns:3;
+  }
   .heading{
     font-size:2.2rem;
     word-break:all;
@@ -197,6 +209,10 @@ button:focus-visible {
     html {
       font-size: 62.5%;
     }
+   .cols{
+    width:calc(100% - 60px);
+    columns:2;
+  }
     .grid{
      gap: 3.2rem;
      grid-template-columns: 1fr;
@@ -214,6 +230,10 @@ button:focus-visible {
     .grid-four-col{
       grid-template-columns: 1fr;
      }
+    .cols{
+    width:calc(100% - 60px);
+    columns:1;
+  }
     }
-    }
+    
 `;
