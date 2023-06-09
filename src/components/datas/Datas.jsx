@@ -39,11 +39,11 @@ const Datas=(props)=>{
             inset 2px 2px 4px #000;
   transition: transform 0.3s ease-in-out;
 }
-.search-result:hover{
+.search-result:hover img{
   background: #999;
-  box-shadow: 2px 2px 4px #aaa,
-            inset -2px -2px 4px #000,
-            inset 2px 2px 4px #fff;
+  box-shadow: 2px 2px 10px #000,
+            inset -8px -8px 40px #000,
+            inset 8px 8px 40px #fff;
 }
 .search-result a {
   padding: 10px;
@@ -116,8 +116,8 @@ const Datas=(props)=>{
           return (
           <div className="search-result" key={item.id}>
           <img src={item.urls.small} alt={item.alt_description}/>
-          <a href={item.links.html} target="_blank">{item.alt_description}</a>
-          <a href={item.urls.regular} download>Download</a>
+          <a href={item.links.html} target="_top">{item.alt_description}</a>
+          <a href={item.urls.regular} download={item.links.download} target="_parent">Download</a>
           </div>
           )
         }):''

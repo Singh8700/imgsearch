@@ -11,7 +11,7 @@ const App=()=> {
    media:{
      mobile:"780px",
      tab:"990px",
-     small:"480px"
+     small:"600px"
    }
  }
   return(
