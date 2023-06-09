@@ -3,7 +3,7 @@ import axios from "axios"
 import Datas from "../datas/Datas"
 const Home =()=>{
   const [status,setStatus]=useState(false)
-  
+  const [res,setRes] =useState([])
   const [result,setResult]=useState([])
   const [page,setPage] = useState(1)
   const [imgName,setImgName] = useState('child')
@@ -22,16 +22,13 @@ const changeHandler=(e)=>{
   //  const filterData = data.results
     
      setResult(data.results)
-   // setPage2(data.results)
-   // alert(window.innerWidth)
-    //setResult(per=>[...per,dat])
-    setStatus(true)
-    
-    
-    console.log("results",result)
+     setStatus(true)
+     
+    //console.log("results",result)
     }catch(e){
       alert(e)
     }
+    
   }
 useEffect(()=>{
      searchResults()
@@ -39,12 +36,12 @@ useEffect(()=>{
 const nextHandler=()=>{
     setPage((page) => page + 1)
     searchResults()
-    console.log("nomber of page",page)
+  // console.log("nomber of page",page)
  }
   const previousHandler=()=>{
     setPage((page) => page - 1)
     searchResults()
-    console.log("nomber of page",page)
+    //console.log("nomber of page",page)
   }
   return(
     <>

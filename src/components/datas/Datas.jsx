@@ -126,12 +126,12 @@ const Datas=(props)=>{
       </div>
     {props.imgName.trim().length==0?'':<div className="btn-conatiner flex">
     <a href="#sections">
-      <button className="btn" type="submit" onClick={props.more}>More
+      <button className="btn" type="submit" onClick={props.more}>Next-Img
     </button></a>
     <div className="page-no">
 <span>{props.pageNo >= 2?<span>Page No:{props.pageNo}</span>:<span></span>}</span>
     </div>
-   {props.pageNo >= 2?<a href="#sections"><button className="btn"  type="submit" onClick={props.previous}>Previous
+   {props.pageNo >= 2?<a href="#sections"><button className="btn"  type="submit" onClick={props.previous}>Previous-img
     </button></a>:''}
     </div>}
     </Wrapper>
